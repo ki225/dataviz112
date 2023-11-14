@@ -11,12 +11,12 @@ trace2_22.x=[];
 trace2_22.y=[];
 
 for(let i=0;i<Touyuan_zoo.length;i++){
-    trace1_22.x[i] = touyuan_zoo[i]['name'];
-    trace1_22.y[i] = touyuan_zoo[i]['count'];
+    trace1_22.x[i] = Touyuan_zoo[i]['name'];
+    trace1_22.y[i] = Touyuan_zoo[i]['count'];
 }
 for(let i=0;i<Taipei_zoo.length;i++){
-    trace2_22.x[i] = taipei_zoo[i]['name'];
-    trace2_22.y[i] = taipei_zoo[i]['count'];
+    trace2_22.x[i] = Taipei_zoo[i]['name'];
+    trace2_22.y[i] = Taipei_zoo[i]['count'];
 }
 
 let data_22=[];

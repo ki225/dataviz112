@@ -1,79 +1,109 @@
-var ultimateColors = [
-    ['rgb(56, 75, 126)', 'rgb(18, 36, 37)', 'rgb(34, 53, 101)', 'rgb(36, 55, 57)', 'rgb(6, 4, 4)'],
-    ['rgb(177, 127, 38)', 'rgb(205, 152, 36)', 'rgb(99, 79, 37)', 'rgb(129, 180, 179)', 'rgb(124, 103, 37)'],
-    ['rgb(33, 75, 99)', 'rgb(79, 129, 102)', 'rgb(151, 179, 100)', 'rgb(175, 49, 35)', 'rgb(36, 73, 147)'],
-    ['rgb(146, 123, 21)', 'rgb(177, 180, 34)', 'rgb(206, 206, 40)', 'rgb(175, 51, 21)', 'rgb(35, 36, 21)']
-];
-
-let myGraph_30 = document.getElementById("myGraph_30");
-
-let trace1_30 ={};
-trace1_30.type = "pie";
-trace1_30.title = "國文";
-trace1_30.labels = [];
-trace1_30.values = [];
-trace1_30.domain = {
-    row:0,
-    column:0
-};
-trace1_30.marker={
-    colors:ultimateColors[0]
-};
-for(let x=0; x<evaluation_ratio_chi.length;x++){
-    trace1_30.labels[x] = evaluation_ratio_chi[x]["name"];
-    trace1_30.values[x] = evaluation_ratio_chi[x]["count"];
-}
-
-let trace2_30 ={};
-trace2_30.type = "pie";
-trace2_30.title = "英文";
-trace2_30.labels = [];
-trace2_30.values = [];
-trace2_30.marker={
-    colors:ultimateColors[1]
-};
-trace2_30.domain = {
-    row:1,
-    column:0
-};
-for(let x=0; x<evaluation_ratio_eng.length;x++){
-    trace2_30.labels[x] = evaluation_ratio_eng[x]["name"];
-    trace2_30.values[x] = evaluation_ratio_eng[x]["count"];
-}
-
-let trace3_30 ={};
-trace3_30.type = "pie";
-trace3_30.title = "數學";
-trace3_30.labels = [];
-trace3_30.values = [];
-trace3_30.marker={
-    colors:ultimateColors[2],
-};
-trace3_30.domain = {
-    row: 0,
-    column: 1
-};
-for(let x=0; x<evaluation_ratio_math.length;x++){
-    trace3_30.labels[x] = evaluation_ratio_math[x]["name"];
-    trace3_30.values[x] = evaluation_ratio_math[x]["count"];
-}
-
-
-
-let data_30 = [];
-data_30.push(trace1_30);
-data_30.push(trace2_30);
-data_30.push(trace3_30);
-
-let layout_30 = {
-    margin:{
-        t:20,
-        l:10,
-    },
-    grid:{
-        rows:2,
-        columns:2
+d3.csv('hw3/data/2012-2021各年度我國學生赴主要留學國家留學簽證人數統計表.csv').then(
+    res3_1 => {
+        draw_pie_chart2(res3_1);
     }
-};
+);
 
-Plotly.newPlot(myGraph_30,data_30,layout_30);
+draw_pie_chart();
+
+function draw_pie_chart(){
+    let myGraph_30 = document.getElementById("myGraph_30");
+
+    let trace1_30 ={};
+    trace1_30.type = "pie";
+    trace1_30.title = "2021年國人出國留學概況";
+    trace1_30.labels = [];
+    trace1_30.values = [];
+
+    for(let x=0; x<set3.length;x++){
+        trace1_30.labels[x] = set3[x]["country"];
+        trace1_30.values[x] = set3[x]["num"];
+    }
+
+    let data_30 = [];
+    data_30.push(trace1_30);
+
+
+    let layout_30 = {
+        margin:{
+            t:20,
+            l:10,
+        }
+    };
+
+    Plotly.newPlot(myGraph_30,data_30,layout_30);
+
+}
+
+function draw_pie_chart2(res3_1){
+    console.log(res3_1);
+    let myGraph_31 = document.getElementById("myGraph_31");
+
+    let trace1_31 ={};
+    trace1_31.type = "pie";
+    trace1_31.title = "2015年國人出國留學概況";
+    trace1_31.labels = [];
+    trace1_31.values = [];
+    trace1_31.hole = 0.5;
+    trace1_31.domain = {
+        row:0,
+        column:0
+    };
+
+    let trace2_31 ={};
+    trace2_31.type = "pie";
+    trace2_31.title = "2017年國人出國留學概況";
+    trace2_31.labels = [];
+    trace2_31.values = [];
+    trace2_31.hole = 0.5;
+    trace2_31.domain = {
+        row:0,
+        column:1
+    };
+    let trace3_31 ={};
+    trace3_31.type = "pie";
+    trace3_31.title = "2019年國人出國留學概況";
+    trace3_31.labels = [];
+    trace3_31.values = [];
+    trace3_31.hole = 0.5;
+    trace3_31.domain = {
+        row:1,
+        column:0
+    };
+    let trace4_31 ={};
+    trace4_31.type = "pie";
+    trace4_31.title = "2021年國人出國留學概況";
+    trace4_31.labels = [];
+    trace4_31.values = [];
+    trace4_31.hole = 0.5;
+    trace4_31.domain = {
+        row:1,
+        column:1
+    };
+
+    for(let x=0; x<res3_1.length;x++){
+        trace1_31.labels[x] = res3_1[x]["國別"];
+        trace1_31.values[x] = res3_1[x]["2015"];
+        trace2_31.labels[x] = res3_1[x]["國別"];
+        trace2_31.values[x] = res3_1[x]["2017"];
+        trace3_31.labels[x] = res3_1[x]["國別"];
+        trace3_31.values[x] = res3_1[x]["2019"];
+        trace4_31.labels[x] = res3_1[x]["國別"];
+        trace4_31.values[x] = res3_1[x]["2021"];
+    }
+
+    let data_31 = [trace1_31,trace2_31,trace3_31,trace4_31];
+
+
+    let layout_31 = {
+        margin:{
+            t:20,
+            l:10,
+        },grid:{
+            rows:2,
+            columns:2
+        }
+    };
+    Plotly.newPlot(myGraph_31,data_31,layout_31);
+}
+

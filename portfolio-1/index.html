@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://kit.fontawesome.com/3c55d65e0e.js" crossorigin="anonymous"></script>
 	</head>
 	<body class="is-preload">
 
@@ -15,13 +16,12 @@
 				<!-- Nav 導覽 -->
 					<nav id="nav">
 						<a href="#" class="icon solid fa-home"><span>Home</span></a>
+						<a href="#reflection" class="fa-solid fa-otter"><span>製作與心得</span></a>
+						<a href="#work" class="fa-regular fa-file"><span>Line&scatter</span></a>
+						<a href="#work2" class="fa-regular fa-file"><span>Bar chart</span></a>
+						<a href="#work3" class="fa-regular fa-file"><span>Pie chart</span></a>
+						<a href="#work4" class="fa-regular fa-file"><span>Histogram</span></a>
 						
-						<a href="#work" class="icon solid fa-folder"><span>Line&scatter</span></a>
-						<a href="#work2" class="icon solid fa-folder"><span>Bar chart</span></a>
-						<a href="#work3" class="icon solid fa-folder"><span>Pie chart</span></a>
-						<a href="#work4" class="icon solid fa-folder"><span>?</span></a>
-						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-						<a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>Twitter</span></a>
 					</nav>
 
 				<!-- Main -->
@@ -33,31 +33,102 @@
 								
 								<header>
 									<h1>111502502 黃詠綺</h1>
-									<p>Senior Astral Projectionist</p>
+									<p>Data Visualization PJ</p>
 									
 									
 								</header>
 								
-								<a href="#work" class="jumplink pic">
+								<a href="#reflection" class="jumplink pic">
 									<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
-									<img src="images/IMG_0765.JPG" alt="" />
-									
+									<img src="images/IMG_5340.JPG" alt="" />
 								</a>
 							
 								
 							</article>
 
 						<!-- Work -->
+						<article id="reflection" class="panel">
+							<header>
+								<h1>製作方式與心得</h1>
+								<br>
+								<h3>製作方式</h3>
+								<p>
+									<b>STEP1.取得資料</b>
+									<br>
+										部分資訊只能下載excel檔案，又或是csv檔案中資料排序方式不符合我要的格式，就先傳入excel處理後再轉成.csv檔案。
+									<br>
+										隨後利用d3抓取.csv檔案中的資訊，並傳入用來繪製圖表的函數。
+									<br>
+									<br>
+									<b>STEP2.製作圖表</b>
+									<br>
+										利用迴圈把每一列資料的特定欄位讀入特定分類數據的x或y。將特定分類數據調整型態(bar,line,...)、標題、顏色和大小等等。
+									<br>
+									<br>
+									<b>STEP3.調整圖表大小</b>
+									<br>
+										透過style.css的引入去改變指定圖表的大小。
+									<br>
+									<br>
+									<b>STEP4.美化網頁</b>
+									<br>
+										將fontawesome網頁資料引入此index.html，即可更改圖示。
+								</p>
+								<br>
+								<h3>心得</h3>
+								<p>
+									這次作業讓我不僅學會如何製作圖表，同時也更加了解HTML的框架與JavaScript，對我來說受益許多。
+									<br>
+									在修這門課以前，我一直很想接觸前端，所以發現期中作業要學會以網頁呈現的時候，實在是非常開心。不過在整份作業完成的過程中也發生不少令人頭痛的小狀況，以下為統整：
+									<br><br>
+									1.記得連網路再 Go live，否則部分東西跑不出來，像是icon和d3讀取的資料。
+									<br>
+									2.index.html裡，data資料夾裡.csv檔的讀取記得放在main.js的前面
+									<br>
+									3.要先x=[]和y=[]才可以對特定索引值得位置賦值。
+									<br>
+									4.style.css的檔案要用href讀取。
+									<br>
+									<br>
+									除了上述，我也學會去用Chrome開發者工具去找尋每一次作業的錯誤，這幫助我更快速的解決問題。
+								</p>
+							</header>
+							
+							
+							
+
+							
+							<a href="#work" class="jumplink pic">
+								<span class="fa-solid fa-arrow-right"><span>跳轉到圖表</span></span>
+							</a>
+						</article>
 						
 
 						<article id="work" class="panel">
 							<header>
-								<h2>line & scatter</h2>
+								<h1>Line & Scatter</h1>
 							</header>
+							<h3>分析緣由</h3>
 							<p>
-								
+								生活安全與品質一直都是居民關注的問題，若一地區常發生竊盜等治安問題，會造成推力。
+
 							</p>
-							<div id="myGraph"></div>
+							<h3>圖表說明</h3>
+							<p>
+								橫軸為111年的每個月份，縱軸表示案件數。此折線圖有兩筆數據，分別是藍色散點代表的失竊件數，以及橘色點線所代表的破獲件數。
+							</p>
+				
+							<h3>圖表：新竹市111年機車竊盜統計折線圖</h3>
+							
+							<div id="myGraph_10"></div>
+							<h3>結論</h3>
+							<p>
+								由上方圖表可以發現失竊車輛多數都成功找回，表示新竹市的警方可能有高效的反應機制，使該地區有良好治安。
+							</p>
+							<p>
+								資料來源<br>
+								<a href="https://data.gov.tw/dataset/166109">政府資料開放平臺——新竹市111年機車竊盜統計表</a>
+							</p>
 
 							<section>
 								<div class="row">
@@ -68,60 +139,107 @@
 
 						<article id="work2" class="panel">
 							<header>
-								<h2>Bar chart</h2>
+								<h1>Bar chart</h1>
 							</header>
+							<h3>分析緣由</h3>
 							<p>
-								Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-								Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-								luctus elit eget interdum.
+								醫療資源的不平等分佈也是一個重要問題。城市通常擁有更多的醫院、診所、醫生和先進的醫療技術，而鄉村地區可能缺乏這些資源，導致居民難以獲得高質量的醫療服務。
+								近期新冠肺炎和流感肆虐，透過下方《醫療院所每萬人口病床數直條圖——依縣市區分》可以發現直轄市的醫療資源相較之下高出許多。
+								<br>
+								然而這並非斷定台灣有城鄉醫療資源問題的根據，必須考量該縣市人口數，因此製作出第二張直條圖《醫療院所每萬人口病床數直條圖——依縣市區分》，以達到更準確的分析。
+								
 							</p>
-							<div id="myGraph_20"></div>
+							<h3>圖表一說明</h3>
 							<p>
-								Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-								Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-								luctus elit eget interdum.
+								橫軸為縣市名稱，縱軸為醫事人員數量。透過將各類型醫事人員欄位的數據疊加，可以更方便觀察醫事人員總數。
 							</p>
+							<h3>圖表一：機構執業醫事人員數直條圖——依縣市區分</h3>
 							<div id="myGraph_21"></div>
+							<link rel="stylesheet" href="hw2/style2.css">
+							<h3>圖表二說明</h3>
 							<p>
-								Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-								Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-								luctus elit eget interdum.
+								橫軸為縣市名稱，縱軸為每萬人病床數量。每個縣市都有三筆數據，分別代表一般病床、特殊病房、診所病房。
 							</p>
-							<div id="myGraph_22"></div>
-							<section>
-								<div class="row">
-									
-								</div>
-							</section>
+							<h3>圖表二：醫療院所每萬人口病床數直條圖——依縣市區分</h3>
+							<div id="myGraph_20"></div>
+							<link rel="stylesheet" href="hw2/style2.css">
+							<h3>結論</h3>
+							<p>
+								由圖表二可知，平均每萬人分配到病床數量前二高峰並非直轄市，而是人口密度較低的花蓮縣和注重長輩議題的嘉義市，圖一僅能顯示出因應各縣市狀況所作出的醫療分配情形。
+							</p>
+							
+							<p>
+								資料來源<br>
+								<a href="https://dep.mohw.gov.tw/DOS/lp-5099-113.html">衛生福利部統計處——醫事機構服務量調查</a>
+							</p>
+							
 						</article>
 
 						<article id="work3" class="panel">
 							<header>
-								<h2>Pie chart</h2>
+								<h1>Pie chart</h1>
 							</header>
+							<h3>分析緣由</h3>
 							<p>
-								Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-								Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-								luctus elit eget interdum.
+								國人傾向到哪國工作與留學可以反映出目標國家的經濟、與我國的政策、社會習慣、就業機會和治安等等。身為學生，想透過圖表分析以了解近年來國人留學的的偏好。
 							</p>
+							<h3>圖表說明</h3>
+							<p>
+								以國家名稱作為圓餅圖各項數值的標籤，國家和特定年份對應的人數作為特定圓餅圖的數據。每一圓餅圖代表不同年份的留學情形。
+							</p>
+							<h3>圖表一：2021年國人出國留學概況</h3>
+							
 							<div id="myGraph_30"></div>
-							<section>
-								<div class="row">
-									
-								</div>
-							</section>
+							<link rel="stylesheet" href="hw3/style3.css">
+							
+							<h3>圖表二：2015、2017、2019與2021年我國學生赴主要留學國家留學簽證人數統計圓餅圖</h3>
+							
+							<div id="myGraph_31"></div>
+							<link rel="stylesheet" href="hw3/style3_2.css">
+							<h3>結論</h3>
+							<p>
+								由圖表二可知美國一直以來都是多數國人留學的第一首選，其次是澳洲。另外，加拿大在留學人數的比例上有逐漸增長的情形。
+							</p>
+							<p>
+								資料來源<br>
+								<a href="https://depart.moe.edu.tw/ed2500/News_Content.aspx?n=2D25F01E87D6EE17&sms=4061A6357922F45A&s=8909A553ED67DF78">國際及兩岸教育司</a>
+							</p>
+							
 						</article>
 
 						<article id="work4" class="panel">
 							<header>
-								<h2>?</h2>
+								<h1>Histogram</h1>
 							</header>
+							<h3>分析緣由</h3>
 							<p>
-								Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-								Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-								luctus elit eget interdum.
+								疫情造成台灣在經濟方面受到很大的影響，像是因為出國意願降低使得觀光收益減少等。然而，是否任何和外國居民有關的方面都受到嚴重影響呢？
+								<br>
+								下圖分別是民國106年及110年外籍學生就讀台灣公私立大學人數直方圖，透過直方圖視覺化疫情前後各大專院校的外籍學生人數，以分析疫情是否對外籍生來台人數影響。
 							</p>
+							<h3>圖表說明</h3>
+							<p>
+								橫軸為學生人數，縱軸為學校數量。此圖使用106學年及110學年各大專校院境外學生人數統計數據，將外籍生、港澳生、陸生在所有大學的數量情形透過直方圖表示。
+							</p>
+							<h3>圖表：106年外籍學生就讀台灣公私立大學人數直方圖</h3>
+							<div id="myGraph_41"></div>
+							<link rel="stylesheet" href="hw4/style.css">
+							<h3>圖表：110年外籍學生就讀台灣公私立大學人數直方圖</h3>
 							<div id="myGraph_40"></div>
+							<link rel="stylesheet" href="hw4/style.css">
+							<h3>結論</h3>
+							<p>
+								由上述兩個圖表可知兩年差距不大，部分學校甚至不減反增，例如：民國110年，港澳生數達到301~599的大學數量比民國106年多了7間，外籍生數達到301~599的大學數量比民國106年多了6間
+								，可見疫情對外籍生數量影響不大。
+							</p>
+							
+							<p>
+								資料來源<br>
+								<a href="https://shirley.tw/110y-foreign-students/">110 年外籍學生就讀台灣公私立大學人數統計</a>
+								<a href="https://odportal.tw/dataset/hFdv2-xq">大專校院境外學生人數統計</a>
+								
+							</p>
+						
 							<section>
 								<div class="row">
 									
@@ -147,22 +265,23 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			
+			<script src="//unpkg.com/d3"></script>
+		    <script src="https://d3js.org/d3-fetch#csv"></script>
         	<script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
-        	<script src="hw1/data.js"></script>
-       		<script src="hw1/main.js"></script>
-			<script src="hw2/hello-bar-chart/data.js"></script>
-       		<script src="hw2/hello-bar-chart/main.js"></script>   
-			<script src="hw2/together_bar/data.js"></script>
-       		<script src="hw2/together_bar/main.js"></script>
-			<script src="hw2/barchart2/data.js"></script>
-       		<script src="hw2/barchart2/main.js"></script>
-		    <script src="hw3/data.js"></script>
-       		<script src="hw3/main.js"></script>
-			<script src="hw4/data.js"></script>
+       
+			<!--data要讀在main前面-->
+			<script src="hw1/data/新竹市111年機車竊盜統計表.csv"></script>    		
+			<script src="hw1/main.js"></script>
+			<script src="hw2/data/機構執業醫事人員數及每萬人口執業醫事人員數.csv"></script>
+			<script src="hw2/data/醫療院所每萬人口病床數－按縣市別分.csv"></script>
+			<script src="hw2/main.js"></script> 
+		    <script src="hw3/data3.js"></script>
+			<script src="hw3/data/2012-2021各年度我國學生赴主要留學國家留學簽證人數統計表.csv"></script>
+			<script src="hw3/style.css"></script>
+			<script src="hw3/main.js"></script>
+			<script src="hw4/data/110年外籍學生就讀台灣公私立大學人數統計.csv"></script>
+			<script src="hw4/data/106學年大專校院境外學生人數統計.csv"></script>
        		<script src="hw4/main.js"></script>
-			
-		
 
 	</body>
 </html>
