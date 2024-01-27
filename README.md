@@ -13,6 +13,7 @@
 	- Histogram
 # DEMO
 ![image](bar_chart_demo.jpg)
+![image]()
 ---
 一些心得
 1. 記得連網路再 Go live，否則部分東西跑不出來，像是icon和d3讀取的資料。 
